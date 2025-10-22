@@ -6,6 +6,34 @@
 .RData
 .RDataTmp
 
+# R History and Environment
+.Rhistory
+.RData
+.Rproj.user/
+
+# R Session Data
+.httr-oauth
+
+# Temporary files
+*.tmp
+*.log
+~
+
+# Large data files (optional - comente se quiser incluir os dados)
+# data/*.csv
+
+# Output files that can be regenerated
+# figures/*.png
+
+# OS files
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# RStudio project files (keep .Rproj but ignore user settings)
+.Rproj.user/
+
 # User-specific files
 .Ruserdata
 
