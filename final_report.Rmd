@@ -1,31 +1,21 @@
 ---
-title: "Economic Openness: Philippines compared to Vietnam, and Thailand"
+title: "Economic Openness: Philippines, Vietnam, and Thailand"
 subtitle: "A Comparative Analysis of Exports and Foreign Direct Investment (1990-2023)"
-author: "Mateus Zanini Fernandes Pires"
-date: "2025-10-13"
-output: 
+author: "Your Name"
+date: "`r Sys.Date()`"
+output:
   pdf_document:
     fig_caption: yes
-geometry: margin=0.4in
-fontsize: 11pt
-linestretch: 1
-header-includes:
-  - \usepackage{titling}
-  - \pretitle{\begin{center}\Large\bfseries}
-  - \posttitle{\end{center}\vspace{-0.5cm}}
-  - \preauthor{\begin{center}\normalsize}
-  - \postauthor{\end{center}\vspace{-0.5cm}}
-  - \predate{\begin{center}\small}
-  - \postdate{\end{center}\vspace{-0.5cm}}
+geometry: margin=0.75in
+fontsize: 10pt
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
-  echo = FALSE,
-  warning = FALSE,
+  echo = FALSE, 
+  warning = FALSE, 
   message = FALSE,
-  fig.width = 6.5,
-  fig.height = 1.25,
+  fig.width = 7,
+  fig.height = 2.5,
   fig.align = 'center',
   out.width = "100%"
 )
@@ -35,26 +25,40 @@ library(tidyverse)
 library(here)
 library(knitr)
 
-# Set working directory to project root
-here::i_am("final_report.Rmd")
-
 # Load the combined data (in case we need it)
 combined_data <- read_csv(here("data", "economic_openness_combined.csv"), 
                           show_col_types = FALSE)
 ```
 
 ## Introduction and Country Context
-\vspace{-0.1cm}
-This report compares export levels and Foreign Direct Investment (FDI) flows among the Philippines, Vietnam, and Thailand from 1990 to 2023, focusing on three demographically and economically similar Southeast Asian nations with populations ranging from 71 to 115 million and GDPs between $460 and $526 billion. While Vietnam and Thailand maintain net export surpluses, the Philippines runs a trade deficit, historically showing lower export levels (Figure 1) but successfully attracting FDI inflows particularly from 2015 to 2020 (Figure 2). The analysis reveals three distinct development trajectories: Thailand leverages established manufacturing capabilities and export infrastructure, Vietnam has rapidly transformed into an export-oriented economy with strong FDI attraction, and the Philippines pursues an alternative path focusing on services, remittances, and domestic consumption while gradually integrating into regional value chains through strategic FDI in digital sectors. Therefore, the openness among these three shows different levels been Vietnam more open to international trade, Thailand despite export relevance in GDP, does not have a surplus of inward flows like Philippines that has an economy focused on internal consumption.
-```{r fig1, fig.cap="\\textbf{Figure 1:} Philippines exports with regional benchmarks (1990-2023), percentage of GDP. Source: World Bank.", fig.height=1.3}
-knitr::include_graphics("figures/exports_philippines_highlighted.png")
 
+In this report, I bring a comparison of the export level and FDI flows among the Philippines, Thailand, and Vietnam. I chose these countries because they are closer to the Southeast Asia market dynamics and have some demographic similarities, like population (Philippines: 115 million, Vietnam: 101 million, and Thailand: 71 million) and GDP (Philippines: $460 billion, Vietnam: $476 billion, and Thailand: $526 billion). On the other hand, the export dynamics and openness of these countries have developed differently over the years. While the Philippines imports more than it exports, Vietnam and Thailand have a net export surplus.
+
+The Philippines, after 2020, outpaced most of the Southeast Asia economics' growth. Wealth concentration: Filipino GDP per capita is $4,348, while the global average is above $12,000. Unlike Vietnam and Thailand, the Philippines is surrounded by water with the South China Sea to the West, the Celebes Sea to the South, and the Philippine Sea to the East, and it is composed of over 7,000 islands, which led to a complex and expensive logistics and supply chain in the country. But the geography brings a competitive advantage for the country because it is centered among different important shipping routes. That is one reason the Philippines attracted foreign investment recently and increased the FDI share of the GDP.
+
+## Analysis of Economic Openness
+```{r fig1, fig.cap="Figure 1: Philippines exports with regional benchmarks showing convergence trends (1990-2023). Exports measured as percentage of GDP. Source: World Bank WDI.", fig.height=2.3}
+knitr::include_graphics(here("figures", "exports_philippines_highlighted.png"))
 ```
 
-```{r fig2, fig.cap="\\textbf{Figure 2:} Net FDI as percentage of GDP (1990-2023). Net FDI = inward minus outward flows. Source: UNCTAD, World Bank.", fig.height=1.3}
-knitr::include_graphics("figures/fdi_net_pct_gdp_comparison.png")
+Figure 1 illustrates that the Philippines historically maintained lower export levels compared to Vietnam and Thailand. Despite the rapid growth in export relevance in the 1990s. The country turned to domestic consumption as an engine of growth in the new millennium.
+```{r fig2, fig.cap="Figure 2: Net FDI as percentage of GDP across three Southeast Asian economies (1990-2023). Net FDI represents inward minus outward flows. Source: UNCTAD, World Bank.", fig.height=2.3}
+knitr::include_graphics(here("figures", "fdi_net_pct_gdp_comparison.png"))
 ```
 
-\vspace{-0.15cm}
+How can the current economic growth of the Philippines be explained? They are exporting services and people abroad. Many Filipinos work in sectors like healthcare and domestic helpers in developed countries. These overseas workers send home over 36 billion dollars annually. It is more than the country earns from its top export industries combined. Additionally, the country has become a digital hub for digital services like call centers and digital marketing.
 
+Figure 2 demonstrates that the Philippines has successfully attracted FDI inflows, particularly in the 2010s and 2020s, reflecting increased investor confidence despite geographical constraints. Thailand shows more volatile FDI patterns, while Vietnam demonstrates steady growth in attracting foreign capital.
 
+## Structural Challenges and Opportunities
+
+The geography limits the industrial development of the country. It makes it hard to create manufacturing hubs and create efficient supply chains, unlike Vietnam and Thailand, which have developed industrial corridors. The Philippines' economy relies on domestic consumption by the young generation that transformed the country into one of the main demand markets in Asia. It generates a persistent trade deficit, which means they import more than they export.
+```{r fig3, fig.cap="Figure 3: Economic openness by decade showing average exports and FDI inflows as percentage of GDP. Values represent decadal averages. Source: World Bank WDI, UNCTAD.", fig.height=2.8}
+knitr::include_graphics(here("figures", "economic_openness_heatmap.png"))
+```
+
+Figure 3 provides a decadal perspective on economic openness, revealing that Thailand has consistently maintained the highest export ratios throughout the period. Vietnam shows dramatic increases in both exports and FDI in recent decades, while the Philippines demonstrates more moderate but steady improvements in FDI attraction, particularly from the 2000s onward.
+
+## Conclusion
+
+The comparative analysis reveals three distinct development trajectories. Thailand leverages established manufacturing capabilities and export infrastructure. Vietnam has rapidly transformed into an export-oriented economy with strong FDI attraction. The Philippines pursues an alternative path, focusing on services, remittances, and domestic consumption, while gradually increasing its integration into regional value chains through strategic FDI in services and digital sectors. Each model reflects geographic realities and demographic strengths, demonstrating that multiple pathways to economic openness exist within Southeast Asia.
